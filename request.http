@@ -1,0 +1,41 @@
+### sign up user
+POST http://localhost:5000/api/users/signup
+content-type: application/json
+
+{
+    "first_name" : "test",
+    "last_name"  : "test",
+    "email"      : "test@mail.com",
+    "password"   : "test123"
+}
+
+
+### signin user
+POST http://localhost:5000/api/users/login
+content-type: application/json
+
+{
+    "email"      : "test@mail.com",
+    "password"   : "test123"
+}
+
+
+### get my profile
+GET http://localhost:5000/api/users/my-profile
+content-type: application/json
+authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ0ZXN0QG1haWwuY29tIiwiZmlyc3RfbmFtZSI6InRlc3QiLCJsYXN0X25hbWUiOiJ0ZXN0IiwiY3JlYXRlZEF0IjoiMjAyMi0xMS0xNVQxNToxMzoyMS43NzhaIiwidXBkYXRlZEF0IjoiMjAyMi0xMS0xNVQxNToxMzoyMS43NzhaIiwiaWF0IjoxNjY4NTI2NjM2fQ.LsvMGJU5Ev38foC3kv1wVfbfWbMXvmj9K30C7Az2rDk
+
+{
+    "email"      : "test@mail.com",
+    "password"   : "test1234"
+}
+
+### logout user 
+DELETE http://localhost:5000/api/users/logout
+content-type: application/json
+authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ0ZXN0QG1haWwuY29tIiwiZmlyc3RfbmFtZSI6InRlc3QiLCJsYXN0X25hbWUiOiJ0ZXN0IiwiY3JlYXRlZEF0IjoiMjAyMi0xMS0xNVQxNToxMzoyMS43NzhaIiwidXBkYXRlZEF0IjoiMjAyMi0xMS0xNVQxNToxMzoyMS43NzhaIiwiaWF0IjoxNjY4NTI3MjMzfQ.MVVQeBdomu9MLPP9uOxn6AV90iM8nYq3M3h23vjH-2A
+
+###get random joke
+GET http://localhost:5000/api/random-joke
+content-type: application/json
+
