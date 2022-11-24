@@ -3,9 +3,10 @@ const fs = require('fs')
 const path = require('path')
 const basename = path.basename(__filename);
 const sequelize = new Sequelize(process.env.POSTGRES_DB,process.env.POSTGRES_USERNAME,process.env.POSTGRES_PASSWORD,{
+    schema:process.env.POSTGRES_SCHEMA,
     dialect:"postgres",
     port:process.env.POSTGRES_PORT,
-    host:"localhost"
+    host:process.env.POSTGRES_HOST
 })
 
 const db = {}
