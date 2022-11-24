@@ -41,10 +41,11 @@ app.use("/api/receipt",receiptRouter)
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 
+let reportMonth = 1
 
 async function generateReport(){
     try{
-        let lastMonth = moment().subtract(1,'months').format()
+        let lastMonth = moment().subtract(reportMonth,'months').format()
         console.log(lastMonth)
         
         let allReportLastMonth = await ReceiptService.findAllForReport({
@@ -98,11 +99,11 @@ async function generateReport(){
     }
     
 }
-generateReport()
 
 //this will run every 5 min
-nodeSchedule.scheduleJob("*/1 * * * *", () => {
-
+//currently receipt are generate in every 5 min
+nodeSchedule.scheduleJob("*/5 * * * *", () => {
+    generateReport()
 });
 
 app.listen("5000")
